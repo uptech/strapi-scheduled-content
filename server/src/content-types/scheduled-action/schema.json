@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scheduled_actions",
+  "info": {
+    "singularName": "scheduled-action",
+    "pluralName": "scheduled-actions",
+    "displayName": "Scheduled Action",
+    "description": "Publish/unpublish jobs executed by the scheduled-content plugin"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "contentType": {
+      "type": "string",
+      "required": true
+    },
+    "targetDocumentId": {
+      "type": "string",
+      "required": true
+    },
+    "targetLocale": {
+      "type": "string"
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": ["publish", "unpublish"],
+      "required": true
+    },
+    "executeAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "processing", "done", "failed", "skipped"],
+      "default": "pending",
+      "required": true
+    },
+    "claimedAt": {
+      "type": "datetime"
+    },
+    "executedAt": {
+      "type": "datetime"
+    },
+    "error": {
+      "type": "text"
+    }
+  }
+}
